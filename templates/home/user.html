@@ -1,0 +1,57 @@
+{% extends 'home/menu.html' %}
+
+
+{% block content %}
+
+    <div class="col-md-9">
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <h3 class="panel-title" href="{{ url_for('home.user') }}"><span class="glyphicon glyphicon-map-marker" ></span>&nbsp;会员中心</h3>
+            </div>
+            <div class="panel-body">
+                <form role="form" method="POST">
+                    <fieldset>
+                            <div class="form-group">
+                                <label for="input_name"><span class="glyphicon glyphicon-user"></span>&nbsp;昵称</label>
+                                {{ form.name }}
+                            </div>
+                            <div class="col-md-12" id="error_name"></div>
+                            <div class="form-group">
+                                <label for="input_email"><span class="glyphicon glyphicon-envelope"></span>&nbsp;邮箱</label>
+                                {{ form.email }}
+                            </div>
+                            <div class="col-md-12" id="error_email"></div>
+                            <div class="form-group">
+                                <label for="input_phone"><span class="glyphicon glyphicon-phone"></span>&nbsp;手机</label>
+                                {{ form.phone }}
+                            </div>
+                            <div class="col-md-12" id="error_phone"></div>
+                            <div class="form-group">
+                                <label for="input_face"><span class="glyphicon glyphicon-picture"></span>&nbsp;头像</label>
+                                <img src="holder.js/100x100" class="img-responsive img-rounded">
+                                <a class="btn btn-primary" style="margin-top:6px;"><span class="glyphicon glyphicon-open"></span>&nbsp;上传头像</a>
+                                <input id="input_face" class="form-control" name="face" type="hidden" autofocus>
+                            </div>
+                            <div class="col-md-12" id="error_face"></div>
+                            <div class="form-group">
+                                <label for="input_info"><span class="glyphicon glyphicon-edit"></span>&nbsp;简介</label>
+                                {{ form.des }}
+                            </div>
+                            <div class="col-md-12" id="error_info"></div>
+                            {{ form.csrf_token }}
+                            {{ form.submit }}
+                        </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script>
+        $(document).ready(function () {
+            $("#user").addClass("active");
+        })
+    </script>
+{% endblock %}
+
